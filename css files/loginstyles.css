@@ -6,7 +6,7 @@
 }
 /* Note-To insert image url of image should be in '' */
 body {
-  background: url("login.jpg");
+  background: url("../img files/login.jpg");
   justify-content: center;
   display: flex;
   align-items: center;
