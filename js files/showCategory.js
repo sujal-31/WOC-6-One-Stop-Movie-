@@ -66,8 +66,8 @@ function showpopularmovies(data) {
       IMG_URL + movie.poster_path
     }" height="230px"width="150px" onclick= showMsg(${movie.id})>
       
-      <h4 id="movie-title" onclick= showMsg(${movie.id})>${movie.name}</h4>
-      <p id="release-date">${movie.first_air_date}</p> 
+      <h4 id="movie-title" onclick= showMsg(${movie.id})>${movie.title}</h4>
+      <p id="release-date">${movie.release_date}</p> 
       <div class="rating"> 
       <i class="fa-sharp fa-solid fa-star"></i>
       <div class="green">${movie.vote_average}</div>
@@ -154,19 +154,19 @@ function getonairtvshows(){
     });
 }
 function showonairtvshows(data){
-  data.forEach((movie) => {
+  data.forEach((tvshow) => {
    
     const movieEl = document.createElement("div");
     movieEl.classList.add("cards");
     movieEl.innerHTML = `<img id="cardposter" src="${
-      IMG_URL + movie.poster_path
-    }" height="230px"width="150px" onclick= showMsgtv(${movie.id})>
+      IMG_URL + tvshow.poster_path
+    }" height="230px"width="150px" onclick= showMsgtv(${tvshow.id})>
       
-      <h4 id="movie-title" onclick= showMsgtv(${movie.id})>${movie.name}</h4>
-      <p id="release-date">${movie.first_air_date}</p>
+      <h4 id="movie-title" onclick= showMsgtv(${tvshow.id})>${tvshow.name}</h4>
+      <p id="release-date">${tvshow.first_air_date}</p>
       <div class="rating"> 
         <i class="fa-sharp fa-solid fa-star"></i>
-        <div class="green">${movie.vote_average}</div>
+        <div class="green">${tvshow.vote_average}</div>
       </div> `;
 
     movielist.appendChild(movieEl);
