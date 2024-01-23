@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie-info</title>
+    <link rel="stylesheet" href="../css files/overview.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+  />
+  <link rel="shortcut icon" href="../img files/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../img files/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="../html files/homepage.html"> <img src="../img files/n.png" height="60px" width="90px" ></a>  
+        </div>  
+        <div class="menu-bar">
+            <ul class="menu-list">
+                <li class="home"><a href="../html files/homepage.html">Home</a></li>
+                <li class="log"><a href="../html files/login.html">Login</a></li>
+                <li class="mov"><a href="#">Movies</a>
+                <div class="sub-menu-2">
+                    <ul>
+                        
+                    <li><a id="popular-link" href="../html files/movie-categories.html?cat=popular">Popular</a></li>
+                    <li><a id="toprated-link" href="../html files/movie-categories.html?cat=toprated">Top Rated</a></li>
+                    <li><a id="nowplaying-link" href="../html files/movie-categories.html?cat=nowplaying">Now Playing</a></li>
+                    </ul>
+                </div>
+                </li>
+                <li class="people-redirect"><a href="../html files/popular-people.html">People</a></li>
+                <li class="watchlist-redirect"><a href="../html files/watchlist.html">Watchlist</a></li>
+                <li class="rating-redirect"><a href="#">Rating</a></li>
+            </ul>
+        </div>
+        </header>
+        
+<div id="main">
+       
+    
+    <div class="movie">
+        <section id="box-content">
+            <div id="img">
+                <img src="../img files/mario2.jpg" height="510px" width="300px">
+                <div id="overviewbox">
+                    <div id="heading">
+                        <h1>The Super Mario Bros(2023)</h1>
+                        <h5>Release Date-07/04/2023</h5>
+                        <i class="fa-solid fa-bookmark"></i>
+                       
+                        <h2>Overview</h2>
+                        <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio, eveniet atque odit fugiat totam iste eius ullam obcaecati sit, officia incidunt magnam delectus mollitia aspernatur necessitatibus asperiores labore iusto repudiandae.</h3>
+                    </div>
+                       
+                </div>
+            </div>
+            
+        </section>
+    </div>
+</div>
+<!-- The overlay -->
+<div id="myNav" class="overlay">
+
+    <!-- Button to close the overlay navigation -->
+    <a href="" class="closebtn" onclick="closeNav()">&times;</a>
+
+</div>
+  
+  <!-- Use any element to open/show the overlay navigation menu -->
+  <span onclick="openNav()"></span>
+
+<script src="../js files/overview.js"></script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap");
+
+:root {
+  --primary-color: #6cd591;
+  --primary-dark: #1b2626;
+  --secondary-color: #293a36;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: white;
+}
+
+.menu-bar {
+  font-size: 10px;
+
+  color: var(--primary-color);
+  text-align: center;
+}
+.menu-bar ul {
+  display: inline-flex;
+  cursor: pointer;
+  list-style: none;
+  margin-right: 650px;
+}
+.menu-bar ul li {
+  padding-right: 10px;
+}
+
+.tv {
+  margin-left: 10px;
+}
+
+li.mov {
+  text-align: center;
+}
+.menu-bar ul li a {
+  text-decoration: none;
+  color: white;
+}
+.menu-bar ul li a:hover {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+.menu-bar ul li.mov:hover {
+  border-radius: 3px;
+}
+
+.sub-menu-2 {
+  display: none;
+}
+.sub-menu-1 ul {
+  margin-top: 0px;
+}
+
+.menu-bar ul li.mov:hover .sub-menu-2 {
+  display: block; /*revise*/
+  position: absolute; /*revise*/
+  background: var(--secondary-color);
+
+  margin-left: -15px;
+}
+.menu-bar ul li.mov:hover .sub-menu-2 ul {
+  display: block;
+  margin: 10px;
+}
+.menu-bar ul li.mov:hover .sub-menu-2 ul li {
+  width: 200px;
+  padding: 5px;
+  background-color: transparent;
+  border-radius: 0px;
+  text-align: left;
+}
+
+.menu-bar ul li.mov:hover .sub-menu-2 ul li a:hover {
+  color: var(--primary-color);
+}
+body {
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  background-color:var(--primary-dark)
+}
+#wrap {
+  flex: 1 1 auto;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--primary-dark);
+}
+header a {
+  margin-left: 10px;
+  font-weight: 500;
+  font-size: 20px;
+
+  font-family: inherit;
+  color: var(--primary-color);
+}
+header.nav a:hover {
+  padding: 10px;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+.logo a {
+  font-weight: bolder;
+}
+
+#main {
+  height: 570px;
+
+  /* background-position: left calc((50vw - 170px) - 340px) top; */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(
+    to right,
+    rgba(5, 218, 151, 0.925) 0%,
+    rgba(242, 246, 250, 0) 100%
+  );
+
+  width: 100%;
+  position: relative;
+}
+#box-content {
+  color: white;
+  height: 510px;
+}
+#img {
+  padding: 30px;
+  display: flex;
+}
+#overviewbox {
+  height: 510px;
+  width: 820px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: center;
+  box-sizing: border-box;
+  padding-left: 40px;
+}
+#heading {
+  width: 100%;
+  margin-bottom: 100px;
+  display: flex table-column;
+  flex-wrap: wrap;
+  padding-left: 10px;
+}
+#heading h1 {
+  font-size: 40px;
+}
+#heading h2 {
+  margin-top: 100px;
+}
+#heading h4 {
+  margin-top: 20px;
+  font-style: italic;
+}
+/* i.fa-solid.fa-bookmark{
+  padding-left: 10px;
+  color: darkred;
+ } */
+#watchlist {
+  margin-left: 30px;
+  margin-top: 30px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  background-color: black;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  display: flex;
+}
+#x {
+  display: flex;
+}
+.ratingbox {
+  margin-left: 30px;
+  margin-top: 40px;
+}
+
+i.fa-regular.fa-bookmark {
+  color: white;
+  cursor: pointer;
+  justify-content: center;
+}
+
+i.fa-solid.fa-bookmark,
+i.fa-regular.fa-bookmark:hover {
+  color: gold;
+  cursor: pointer;
+}
+i.fa-sharp.fa-solid.fa-star {
+  cursor: pointer;
+}
+.fa-solid.fa-play {
+  margin-top: 40px;
+  margin-left: 40px;
+  color: var(--primary-dark);
+}
+#trailerheading {
+  margin-top: 35px;
+  font-weight: 800;
+}
+
+#heading h2,
+h5,
+h3,
+h1,
+h4 {
+  padding-left: 10px;
+  color: black;
+  font-weight: bolder;
+}
+#overview-heading {
+  padding-bottom: 50px;
+}
+#trailerheading {
+  cursor: pointer;
+}
+.video {
+  position: absolute;
+  top: 10px;
+  right: 100px;
+  bottom: 10px;
+  left: 100px;
+}
+
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */
+  height: 100%;
+  width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: rgb(0, 0, 0); /* Black fallback color */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+  position: relative;
+  top: 25%; /* 25% from the top */
+  width: 100%; /* 100% width */
+  text-align: center; /* Centered text/links */
+  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover,
+.overlay a:focus {
+  color: #f1f1f1;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+  .overlay a {
+    font-size: 20px;
+  }
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}

@@ -1,0 +1,200 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap");
+
+:root {
+  --primary-color: #6cd591;
+  --primary-dark: #1b2626;
+  --secondary-color: #293a36;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: white;
+}
+
+.menu-bar {
+  font-size: 10px;
+
+  color: var(--primary-color);
+  text-align: center;
+}
+.menu-bar ul {
+  display: inline-flex;
+  cursor: pointer;
+  list-style: none;
+  margin-right: 650px;
+}
+.menu-bar ul li {
+  padding-right: 10px;
+}
+
+.tv {
+  margin-left: 10px;
+}
+
+li.mov {
+  text-align: center;
+}
+.menu-bar ul li a {
+  text-decoration: none;
+  color: white;
+}
+.menu-bar ul li a:hover {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+.menu-bar ul li.mov:hover {
+  border-radius: 3px;
+}
+
+.sub-menu-2 {
+  display: none;
+}
+.sub-menu-1 ul {
+  margin-top: 0px;
+}
+
+.menu-bar ul li.mov:hover .sub-menu-2 {
+  display: block; /*revise*/
+  position: absolute; /*revise*/
+  background: var(--secondary-color);
+
+  margin-left: -15px;
+}
+.menu-bar ul li.mov:hover .sub-menu-2 ul {
+  display: block;
+  margin: 10px;
+}
+.menu-bar ul li.mov:hover .sub-menu-2 ul li {
+  width: 200px;
+  padding: 5px;
+  background-color: transparent;
+  border-radius: 0px;
+  text-align: left;
+}
+
+.menu-bar ul li.mov:hover .sub-menu-2 ul li a:hover {
+  color: var(--primary-color);
+}
+body {
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  background-color: floralwhite;
+}
+#wrap {
+  flex: 1 1 auto;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+header {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--primary-dark);
+}
+header a {
+  margin-left: 10px;
+  font-weight: 500;
+  font-size: 20px;
+
+  font-family: inherit;
+  color: var(--primary-color);
+}
+header.nav a:hover {
+  padding: 10px;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+.logo a {
+  font-weight: bolder;
+}
+
+.inner-content {
+  box-sizing: border-box;
+  width: 100%;
+}
+.wrapper-content {
+  padding: 30px 40px;
+  align-items: flex-start;
+}
+.content {
+  width: 100%;
+
+  width: 260px;
+  flex-wrap: wrap;
+}
+.title {
+  padding-left: 80px;
+}
+
+.movie-list {
+  padding-left: 15px;
+}
+
+#movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
+  padding-right: 80px;
+  padding-left: 80px;
+}
+.cards {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 150px;
+  flex-wrap: wrap;
+  align-content: center;
+  border: 1px solid #e3e3e3;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 30px;
+
+  margin: 8px;
+}
+.peoplecards {
+  flex-wrap: wrap;
+  align-content: center;
+  border: 1px solid #e3e3e3;
+  border-radius: 10px;
+  overflow: hidden;
+
+  margin: 8px;
+}
+#cardposter {
+  border-radius: 10px;
+  cursor: pointer;
+}
+#movie-title {
+  text-align: center;
+  cursor: pointer;
+}
+#movie-title:hover {
+  color: purple;
+}
+#release-date {
+  text-align: center;
+}
+.rating {
+  display: flex;
+  margin-left: 15px;
+ 
+}
+.green {
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+  color: var(--primary-dark);
+}
+.fa-sharp.fa-solid.fa-star {
+  display: flex;
+  align-items: center;
+  color: darkgoldenrod;
+}
