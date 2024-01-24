@@ -99,7 +99,9 @@
 
           signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-              createguestsession();
+            const user = userCredential.user;
+              console.log(user);
+              document.location = "../html files/homepage.html";
             })
             .catch((error) => {
               const errorCode = error.code;
@@ -129,28 +131,7 @@
             "Dont have an account?";
         }
       });
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMmFjYzYzYWI1MDZhNzNkODZmNjVjOTgwYTA5ZjcwZSIsInN1YiI6IjY1Nzk4MDAyNTY0ZWM3MDExYjIwZjExYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HFlX0iH45_bsf-_aJNgkQNylDcBSL1Nd3xPOSO_wT9I",
-      },
-    };
+   
 
-    function createguestsession() {
-      fetch(
-        "https://api.themoviedb.org/3/authentication/guest_session/new",
-        options
-      )
-        .then((response) => response.json())
-        .then((response) => redirectguest(response.guest_session_id))
-        // .then(response =>redirectguest(response))
-
-        .catch((err) => console.error(err));
-    }
-    function redirectguest(id) {
-      document.location = "../html files/homepage.html"
-    }
   </script>
 </html>
