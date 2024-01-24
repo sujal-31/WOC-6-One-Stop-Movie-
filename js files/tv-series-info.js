@@ -8,14 +8,7 @@ const tvId = new URLSearchParams(window.location.search).get("tvid");
 const background_url =
   "https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/";
 
-// function showMsg(id){
-
-//     document.location="info.html"+"?id="+id;
-
-// }
 getmovies();
-
-//https://api.themoviedb.org/3/movie/906126?language=en-US&api_key=c2acc63ab506a73d86f65c980a09f70e
 
 function getmovies() {
   main.innerHTML = "";
@@ -35,12 +28,6 @@ function getmovies() {
       showmovies(data);
     });
 }
-
-// .then((res) => res.json())
-// .then((data) => {
-//   console.log(data.results);
-//   showmovies(data.results);
-
 showmovies = (data) => {
   const movieEl = document.createElement("div");
   movieEl.classList.add("movie");
@@ -96,12 +83,27 @@ showmovies = (data) => {
     if (tvwatchListedMovies != null && tvwatchListedMovies.includes(tvId)) {
   document.querySelector('#watchlist > i').classList.replace('fa-regular', 'fa-solid');
     }
-
-
-  
+  let stars = document.querySelectorAll(".stars > i");
+  const tvRatings = JSON.parse(localStorage.getItem("tvratingMap")) || {};
+  const currentRating = tvRatings[tvId];
+  for (let i = 0; i < currentRating; ++i) stars[i].style.color = "yellow";
+  stars.forEach((elem, index) => {
+    elem.addEventListener("click", () => {
+      let i = 0;
+      while (i <= index) {
+        stars[i].style.color = "yellow";
+        ++i;
+        console.log(index);
+      }
+      while (i < stars.length) {
+        stars[i].style.color = "white";
+        ++i;
+      }
+      tvRatings[tvId] = index + 1;
+      localStorage.setItem("tvratingMap", JSON.stringify(tvRatings));
+    });
+  });  
 };
-
-
 
 function tvwatchList(elem) {
   let tvwatchList = JSON.parse(localStorage.getItem('tvwatchList'));
@@ -140,19 +142,6 @@ function openNav() {
      
     })
   }
-
-      // videodata.results.forEach(video=>{
-      //   // if(video.type=="Trailer"){
-      //     var embed=[];
-      //     embed.push(`
-          
-      // <iframe width="560" height="315" src="https://www.youtube.com/embed/${video.key}"
-      //  title="${video.name}" frameborder="0" 
-      //  allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
-      //  gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      //     `)
-      //   }
-      // })
     showvideo=(video)=>{
       const overlay =document.getElementById("myNav")
       const overlayEl=document.createElement("div")
@@ -169,13 +158,7 @@ function openNav() {
       }
       }
     
-    
-    
-  
-
-
 // /* Close when someone clicks on the "x" symbol inside the overlay */
 function closeNav() {
-  document.getElementById("myNav").style.width = "0%";
-  
+  document.getElementById("myNav").style.width = "0%";  
 }
