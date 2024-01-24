@@ -22,6 +22,8 @@ a {
 }
 .menu-bar ul {
   display: inline-flex;
+  position: relative;
+  z-index: 1;
   cursor: pointer;
   list-style: none;
   margin-right: 650px;
