@@ -125,19 +125,6 @@ function watchlist(elem) {
   localStorage.setItem("watchList", JSON.stringify(watchList));
 }
 
-function rating(elem) {
-  let watchList = JSON.parse(localStorage.getItem("watchList"));
-  if (watchList == null) watchList = [];
-  const movieIndex = watchList.indexOf(movieId);
-  if (movieIndex != -1) {
-    watchList.splice(movieIndex, 1);
-    elem.classList.replace("fa-solid", "fa-regular");
-  } else {
-    watchList.push(movieId);
-    elem.classList.replace("fa-regular", "fa-solid");
-  }
-  localStorage.setItem("watchList", JSON.stringify(watchList));
-}
 
 function openNav() {
   document.getElementById("myNav").style.width = "100%";
