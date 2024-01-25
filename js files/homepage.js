@@ -11,6 +11,14 @@ const searchURL = Base_URL + "/search/movie?" + API_KEY;
 const tagsEl = document.getElementById("tags");
 const main = document.getElementById("main");
 const mainpage = document.getElementById("mainpage");
+const options = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMmFjYzYzYWI1MDZhNzNkODZmNjVjOTgwYTA5ZjcwZSIsInN1YiI6IjY1Nzk4MDAyNTY0ZWM3MDExYjIwZjExYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HFlX0iH45_bsf-_aJNgkQNylDcBSL1Nd3xPOSO_wT9I",
+  },
+};
 
 gettrendingmovies();
 getplayingmovies();
@@ -20,13 +28,7 @@ getTopratedTvshoes();
 function gettrendingmovies() {
   document.querySelector("#trending").innerHTML = "Trending Movies";
   ol.innerHTML = "";
-  fetch("https://api.themoviedb.org/3/trending/movie/day?language=en-US", {
-    headers: {
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMmFjYzYzYWI1MDZhNzNkODZmNjVjOTgwYTA5ZjcwZSIsInN1YiI6IjY1Nzk4MDAyNTY0ZWM3MDExYjIwZjExYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HFlX0iH45_bsf-_aJNgkQNylDcBSL1Nd3xPOSO_wT9I",
-      accept: "application/json",
-    },
-  })
+  fetch("https://api.themoviedb.org/3/trending/movie/day?language=en-US", options)
     .then((res) => res.json())
     .then((data) => {
       console.log(data.results);
@@ -57,16 +59,7 @@ function showtrendingmovies(data) {
 function getplayingmovies() {
   document.querySelector("#playing").innerHTML = "Now Playing Movies";
   ol2.innerHTML = "";
-  fetch(
-    "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
-    {
-      headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMmFjYzYzYWI1MDZhNzNkODZmNjVjOTgwYTA5ZjcwZSIsInN1YiI6IjY1Nzk4MDAyNTY0ZWM3MDExYjIwZjExYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HFlX0iH45_bsf-_aJNgkQNylDcBSL1Nd3xPOSO_wT9I",
-        accept: "application/json",
-      },
-    }
-  )
+ fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1", options)
     .then((res) => res.json())
     .then((data) => {
       console.log(data.results);
@@ -98,13 +91,7 @@ function showplayingmovies(data) {
 function gettrendingtvshoes() {
   document.querySelector("#trendingtv").innerHTML = "Trending Tv shows";
   ol3.innerHTML = "";
-  fetch("https://api.themoviedb.org/3/trending/tv/day?language=en-US", {
-    headers: {
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMmFjYzYzYWI1MDZhNzNkODZmNjVjOTgwYTA5ZjcwZSIsInN1YiI6IjY1Nzk4MDAyNTY0ZWM3MDExYjIwZjExYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HFlX0iH45_bsf-_aJNgkQNylDcBSL1Nd3xPOSO_wT9I",
-      accept: "application/json",
-    },
-  })
+  fetch("https://api.themoviedb.org/3/trending/tv/day?language=en-US", options)
     .then((res) => res.json())
     .then((data) => {
       console.log(data.results);
@@ -119,7 +106,7 @@ function showtrendingtvshoes(data) {
         
         <img id="cardposter" src="${
           IMG_URL + movie.poster_path
-        }" onclick= showMsg(${movie.id}) height="230px"width="150px">
+        }" onclick= showMsgtv(${movie.id}) height="230px"width="150px">
         </a>
         <div class="rating"> 
         <i class="fa-sharp fa-solid fa-star"></i>
@@ -137,13 +124,7 @@ function showtrendingtvshoes(data) {
 function getTopratedTvshoes() {
   document.querySelector("#topratedtv").innerHTML = "Top Rated Tv shows";
   ol4.innerHTML = "";
-  fetch("https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1", {
-    headers: {
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMmFjYzYzYWI1MDZhNzNkODZmNjVjOTgwYTA5ZjcwZSIsInN1YiI6IjY1Nzk4MDAyNTY0ZWM3MDExYjIwZjExYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HFlX0iH45_bsf-_aJNgkQNylDcBSL1Nd3xPOSO_wT9I",
-      accept: "application/json",
-    },
-  })
+  fetch("https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1", options)
     .then((res) => res.json())
     .then((data) => {
       console.log(data.results);
@@ -174,61 +155,21 @@ function showtopratedtvshoes(data) {
     ol4.appendChild(movieEl);
   });
 }
-
-function getsearchmovies() {
-  mainpage.innerHTML = "";
-  fetch(
-    "https://api.themoviedb.org/3/search/movie?query=" +
-      search.value +
-      "&include_adult=false&include_video=false&language=en-US&page=1",
-    {
-      headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMmFjYzYzYWI1MDZhNzNkODZmNjVjOTgwYTA5ZjcwZSIsInN1YiI6IjY1Nzk4MDAyNTY0ZWM3MDExYjIwZjExYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HFlX0iH45_bsf-_aJNgkQNylDcBSL1Nd3xPOSO_wT9I",
-        accept: "application/json",
-      },
-    }
-  )
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data.results);
-      showsearchmovies(data.results);
-    });
-}
-// const searchTerm = search.value;
 document.getElementById("search-form").addEventListener("submit", (e) => {
   e.preventDefault();
 
   const searchTerm = search.value;
-  // selectedGenre = [];
-  // setGenre();
+
   if (searchTerm) {
     document.location = "search.html" + "?search=" + search.value;
   } else {
     gettrendingmovies();
     getplayingmovies();
+    gettrendingtvshoes();
+    getTopratedTvshoes();
   }
 });
 
-function showsearchmovies(data) {
-  data.forEach((movie) => {
-    const movieEl = document.createElement("div");
-    movieEl.classList.add("cards");
-    movieEl.innerHTML = ` <img src="${
-      IMG_URL + movie.poster_path
-    }" height="300px"width="300px">
-                <div class="movieinfo">
-                    <h3 onclick= showMsg(${movie.id})>${movie.title}</h3>
-                    <span class="green">${movie.vote_average}</span>
-            
-                </div>
-                
-    
-            </div>`;
-
-    searchedmovie.appendChild(movieEl);
-  });
-}
 function showMsg(id) {
   console.log(id);
   document.location = "info.html" + "?id=" + id;
@@ -254,112 +195,4 @@ function showMsgtv(id) {
   }
 
   console.log(searchParams.get(id));
-}
-
-function getpopularmovies() {
-  movielist.innerHTML = "";
-  fetch(
-    "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=" +
-      selectedGenre.join(","),
-    {
-      headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMmFjYzYzYWI1MDZhNzNkODZmNjVjOTgwYTA5ZjcwZSIsInN1YiI6IjY1Nzk4MDAyNTY0ZWM3MDExYjIwZjExYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HFlX0iH45_bsf-_aJNgkQNylDcBSL1Nd3xPOSO_wT9I",
-        accept: "application/json",
-      },
-    }
-  )
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data.results);
-      showpopularmovies(data.results);
-    });
-}
-
-function showpopularmovies(data) {
-  data.forEach((movie) => {
-    const movieEl = document.createElement("div");
-    movieEl.classList.add("cards");
-    movieEl.innerHTML = `<img id="cardposter" src="${
-      IMG_URL + movie.poster_path
-    }" height="230px"width="150px" onclick= showMsg(${movie.id})>
-    
-    <h4 id="movie-title" onclick= showMsg(${movie.id})>${movie.title}</h4>
-    <p id="release-date">${movie.release_date}</p> 
-    <div class="rating"> 
-    <i class="fa-sharp fa-solid fa-star"></i>
-    <div class="green">${movie.vote_average}</div>
-    
-    </div>
-    `;
-
-    movielist.appendChild(movieEl);
-  });
-}
-
-function getTopratedmovies() {
-  movielist.innerHTML = "";
-  fetch(
-    "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&with_genres=" +
-      selectedGenre.join(","),
-    {
-      headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMmFjYzYzYWI1MDZhNzNkODZmNjVjOTgwYTA5ZjcwZSIsInN1YiI6IjY1Nzk4MDAyNTY0ZWM3MDExYjIwZjExYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HFlX0iH45_bsf-_aJNgkQNylDcBSL1Nd3xPOSO_wT9I",
-        accept: "application/json",
-      },
-    }
-  )
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data.results);
-      showTopratedmovies(data.results);
-    });
-}
-function showTopratedmovies(data) {
-  data.forEach((movie) => {
-    const movieEl = document.createElement("div");
-    movieEl.classList.add("cards");
-    movieEl.innerHTML = `<img id="cardposter" src="${
-      IMG_URL + movie.poster_path
-    }" height="230px"width="150px" onclick= showMsg(${movie.id})>
-    
-    <h4 id="movie-title" onclick= showMsg(${movie.id})>${movie.title}</h4>
-    <p id="release-date">${movie.release_date}</p>   `;
-
-    movielist.appendChild(movieEl);
-  });
-}
-function getnowplayingmovies() {
-  movielist.innerHTML = "";
-  fetch(
-    "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&with_genres=" +
-      selectedGenre.join(","),
-    {
-      headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMmFjYzYzYWI1MDZhNzNkODZmNjVjOTgwYTA5ZjcwZSIsInN1YiI6IjY1Nzk4MDAyNTY0ZWM3MDExYjIwZjExYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HFlX0iH45_bsf-_aJNgkQNylDcBSL1Nd3xPOSO_wT9I",
-        accept: "application/json",
-      },
-    }
-  )
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data.results);
-      shownowplayingmovies(data.results);
-    });
-}
-function shownowplayingmovies(data) {
-  data.forEach((movie) => {
-    const movieEl = document.createElement("div");
-    movieEl.classList.add("cards");
-    movieEl.innerHTML = `<img id="cardposter" src="${
-      IMG_URL + movie.poster_path
-    }" height="230px"width="150px" onclick= showMsg(${movie.id})>
-    
-    <h4 id="movie-title" onclick= showMsg(${movie.id})>${movie.title}</h4>
-    <p id="release-date">${movie.release_date}</p>   `;
-
-    movielist.appendChild(movieEl);
-  });
 }
