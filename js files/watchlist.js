@@ -5,16 +5,10 @@ const movieListDiv = document.getElementById('movie-list');
 const background_url =
   "https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/";
 
-function showMsg(id){
-
-    document.location="info.html"+"?id="+id;
-
-}
-
 let arr = JSON.parse(localStorage.getItem('watchList'));
 function createCardPoster(imageSrc, movieId, movieTitle, releaseDate) {
     const onMovieClick = () => {
-        document.location="info.html"+"?id="+id;
+        document.location="../html files/info.html"+"?id="+movieId;
 
     }
     const cardPosterDiv = document.createElement('div');
@@ -62,8 +56,8 @@ arr.forEach(movieId =>{
 })
 let arr2 = JSON.parse(localStorage.getItem('tvwatchList'));
 function createtvCardPoster(tvimageSrc, tvId, tvTitle, tvreleaseDate) {
-    const onMovieClick = () => {
-        document.location="info.html"+"?id="+id;
+    const ontvClick = () => {
+        document.location="../html files/tv-series-info.html"+"?tvid="+tvId;
 
     }
     const cardPosterDiv = document.createElement('div');
@@ -73,12 +67,12 @@ function createtvCardPoster(tvimageSrc, tvId, tvTitle, tvreleaseDate) {
     tvImg.src = tvimageSrc;
     tvImg.width = 200;
     tvImg.height = 300;
-    tvImg.addEventListener('click', onMovieClick);
+    tvImg.addEventListener('click', ontvClick);
     cardPosterDiv.appendChild(tvImg);
     const tvTitleElement = document.createElement('h4');
     tvTitleElement.id = 'movie-title';
     tvTitleElement.textContent = tvTitle;
-    tvTitleElement.addEventListener('click', onMovieClick);
+    tvTitleElement.addEventListener('click', ontvClick);
     cardPosterDiv.appendChild(tvTitleElement);
     const releaseDateElement = document.createElement('p');
     releaseDateElement.id = 'release-date';
